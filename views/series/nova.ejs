@@ -1,0 +1,34 @@
+<% include ../partials/header %>
+
+     <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+              <form method="post">
+                 <h2>Nova série</h2>
+                    <div class="form-group">
+                        <label for="name">Nome da série</label>
+                        <input name="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Informe o nome da série">
+                       <small id="nameHelp" class="form-text text-muted">Nome da série a ser salva.</small>
+                       <!--if (typeof variable === 'undefined')-->
+                       <% if(typeof errors !== "undefined" && errors.indexOf('name') >=0) { %>
+                        <small id="nameHelp" style="color:red">Por favor digite um nome para série.</small>
+                      <% } %>
+                    </div>
+
+                    <div class="form-group">
+                            <label for="status">Situação da série</label>
+                            <select class="form-control" id="status" name="status">
+                              <option value="to-watch">Para assistir</option>
+                              <option value="watching">Assistindo</option>
+                              <option value="watched">Assistido</option>
+                            </select>
+                          </div>
+
+            <button class="btn btn-primary">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <% include ../partials/footer %>

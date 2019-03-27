@@ -1,0 +1,34 @@
+<% include ../partials/header %>
+
+     <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Séries</h2>
+            <p class="lead">Minha lista de Séries</p>
+            
+            <table class="table table-hover table-bordered table-dark">
+                <% series.forEach( serie => { %>
+                    <tr>
+                        <td>
+                        <a href="/series/info/<%=serie._id %>"><%= serie.name %></a>
+                        </td>
+                        <td>
+                            <span class="badge badge-pill badge-secondary">
+                                <%= labels.filter( label => label.id === serie.status) [0].name %>
+                            </span>
+                        </td>
+                        
+                        <td>
+                            <a class="btn btn-primary btn-sm" href="/series/excluir/<%= serie._id %>">Excluir</a>
+                            <a class="btn btn-primary btn-sm" href="/series/editar/<%= serie._id %>">Editar</a>        
+                        </td>
+                <% }) %>
+            </table>
+            <a href="/series/nova" class="btn btn-primary btn-sm">Incluir série</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <% include ../partials/footer %>
